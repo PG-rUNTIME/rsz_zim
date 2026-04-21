@@ -12,17 +12,21 @@ export default defineConfig(({ mode }) => {
     ""
   ).replace(/\/$/, "");
 
-  // Do not `define` VITE_WEB3FORMS_ACCESS_KEY here — that can bake an empty string and override
-  // Vite’s normal replacement from process.env (Render/Netlify inject at build time).
-  const web3FormsAccessKeyForLog = (
+  // Resolve once in Node (same values the build sees) and inject explicitly. Relying only on
+  // Vite’s default import.meta.env replacement has left some Render/static builds with an empty
+  // key in the bundle; define guarantees what process.env / .env contained at config load time.
+  // Also accept WEB3FORMS_ACCESS_KEY — a common dashboard typo (missing VITE_ prefix).
+  const web3FormsAccessKey = (
     process.env.VITE_WEB3FORMS_ACCESS_KEY ||
+    process.env.WEB3FORMS_ACCESS_KEY ||
     loaded.VITE_WEB3FORMS_ACCESS_KEY ||
+    loaded.WEB3FORMS_ACCESS_KEY ||
     ""
   ).trim();
 
-  if (process.env.RENDER === "true" && !web3FormsAccessKeyForLog) {
+  if (process.env.RENDER === "true" && !web3FormsAccessKey) {
     console.warn(
-      "[vite] VITE_WEB3FORMS_ACCESS_KEY is missing at build time. In Render → Environment, add it, then use “Save, rebuild, and deploy” (not “Save and deploy”) so Vite can embed it in the bundle.",
+      "[vite] Web3Forms key missing at build time. In Render → this static site → Environment, set VITE_WEB3FORMS_ACCESS_KEY (or WEB3FORMS_ACCESS_KEY), then “Save, rebuild, and deploy”. “Save and deploy” reuses an old bundle and will not pick up Vite env.",
     );
   }
 
@@ -36,6 +40,7 @@ export default defineConfig(({ mode }) => {
     define: {
       "import.meta.env.VITE_SITE_URL": JSON.stringify(siteUrl),
       "import.meta.env.VITE_NETLIFY_FORMS": JSON.stringify(netlifyFormsEnabled ? "true" : ""),
+      "import.meta.env.VITE_WEB3FORMS_ACCESS_KEY": JSON.stringify(web3FormsAccessKey),
     },
   };
 });

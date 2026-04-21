@@ -139,7 +139,7 @@ export function InquiryChat() {
     if (!netlifyFormsSupportedClient()) {
       setStatus("error");
       setErrorMessage(
-        `We can’t send from the browser yet: add VITE_WEB3FORMS_ACCESS_KEY in your host’s environment (e.g. Render → Environment), then trigger a full rebuild (“Save, rebuild, and deploy” on Render—not “Save and deploy”). Or email ${SITE_INQUIRY_EMAIL}.`,
+        `We can’t send from the browser yet: on your static host (e.g. Render → this site → Environment) set VITE_WEB3FORMS_ACCESS_KEY or WEB3FORMS_ACCESS_KEY, then a full rebuild (“Save, rebuild, and deploy”—not “Save and deploy”, which keeps an old JS bundle). Or email ${SITE_INQUIRY_EMAIL}.`,
       );
       return;
     }

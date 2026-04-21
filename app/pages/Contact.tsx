@@ -59,7 +59,7 @@ export function Contact() {
       setErrorMessage(
         isDev
           ? `Add VITE_WEB3FORMS_ACCESS_KEY to .env (see web3forms.com), or email ${SITE_INQUIRY_EMAIL}.`
-          : `Add VITE_WEB3FORMS_ACCESS_KEY under Render → Environment, then click “Save, rebuild, and deploy” (not “Save and deploy”—that reuses an old build without your key). Or email ${SITE_INQUIRY_EMAIL}.`,
+          : `Add VITE_WEB3FORMS_ACCESS_KEY (or WEB3FORMS_ACCESS_KEY) under Render → this static site → Environment, then “Save, rebuild, and deploy” (not “Save and deploy”). Or email ${SITE_INQUIRY_EMAIL}.`,
       );
       return;
     }
