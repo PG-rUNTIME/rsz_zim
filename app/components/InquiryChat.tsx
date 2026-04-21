@@ -60,10 +60,18 @@ async function submitNetlifyForm(
   if (!res.ok) {
     return {
       ok: false,
-      message: `Could not send (${res.status}). Add VITE_WEB3FORMS_ACCESS_KEY in Netlify (Build env) and redeploy so Web3Forms is used, or fix Netlify Forms for “rsz-inquiry”.`,
+      message: `Could not send (${res.status}). Add VITE_WEB3FORMS_ACCESS_KEY at build time and redeploy, or check Netlify Forms for “rsz-inquiry”.`,
     };
   }
   return { ok: true };
+}
+
+function netlifyFormsSupportedClient(): boolean {
+  if (import.meta.env.VITE_NETLIFY_FORMS === "true") return true;
+  if (typeof window !== "undefined" && /\.netlify\.app$/i.test(window.location.hostname)) {
+    return true;
+  }
+  return false;
 }
 
 export function InquiryChat() {
@@ -124,6 +132,14 @@ export function InquiryChat() {
       setStatus("error");
       setErrorMessage(
         `Local dev cannot use Netlify Forms. Add VITE_WEB3FORMS_ACCESS_KEY to .env (see web3forms.com), or test after deploy. You can still email ${SITE_INQUIRY_EMAIL}.`,
+      );
+      return;
+    }
+
+    if (!netlifyFormsSupportedClient()) {
+      setStatus("error");
+      setErrorMessage(
+        `This host does not support Netlify Forms (e.g. Render serves static files only). Add VITE_WEB3FORMS_ACCESS_KEY in your service’s **build** environment variables, save, and **redeploy** so Web3Forms runs in the browser. You can still email ${SITE_INQUIRY_EMAIL}.`,
       );
       return;
     }
