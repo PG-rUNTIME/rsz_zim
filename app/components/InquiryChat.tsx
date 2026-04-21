@@ -139,7 +139,7 @@ export function InquiryChat() {
     if (!netlifyFormsSupportedClient()) {
       setStatus("error");
       setErrorMessage(
-        `This host does not support Netlify Forms (e.g. Render serves static files only). Add VITE_WEB3FORMS_ACCESS_KEY in your service’s **build** environment variables, save, and **redeploy** so Web3Forms runs in the browser. You can still email ${SITE_INQUIRY_EMAIL}.`,
+        `We can’t send from the browser yet: add VITE_WEB3FORMS_ACCESS_KEY in your host’s environment (e.g. Render → Environment), then trigger a full rebuild (“Save, rebuild, and deploy” on Render—not “Save and deploy”). Or email ${SITE_INQUIRY_EMAIL}.`,
       );
       return;
     }
