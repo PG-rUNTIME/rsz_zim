@@ -12,14 +12,19 @@ export default defineConfig(({ mode }) => {
     ""
   ).replace(/\/$/, "");
 
-  // Netlify (and CI) inject secrets into process.env at build time; merge so the client bundle
-  // always receives the key. Vite only reads .env files via loadEnv — without this, UI-only env
-  // vars added in Netlify after a deploy can be missing until the next build picks them up.
-  const web3FormsAccessKey = (
-    loaded.VITE_WEB3FORMS_ACCESS_KEY ||
+  // Do not `define` VITE_WEB3FORMS_ACCESS_KEY here — that can bake an empty string and override
+  // Vite’s normal replacement from process.env (Render/Netlify inject at build time).
+  const web3FormsAccessKeyForLog = (
     process.env.VITE_WEB3FORMS_ACCESS_KEY ||
+    loaded.VITE_WEB3FORMS_ACCESS_KEY ||
     ""
   ).trim();
+
+  if (process.env.RENDER === "true" && !web3FormsAccessKeyForLog) {
+    console.warn(
+      "[vite] VITE_WEB3FORMS_ACCESS_KEY is missing at build time. In Render → Environment, add it, then use “Save, rebuild, and deploy” (not “Save and deploy”) so Vite can embed it in the bundle.",
+    );
+  }
 
   // Netlify sets NETLIFY=true during its build — enables the Netlify Forms fallback in the client.
   // Render / plain static hosts do not; POSTing there returns 405. Override with VITE_NETLIFY_FORMS=true if needed.
@@ -30,7 +35,6 @@ export default defineConfig(({ mode }) => {
     plugins: [react(), tailwindcss()],
     define: {
       "import.meta.env.VITE_SITE_URL": JSON.stringify(siteUrl),
-      "import.meta.env.VITE_WEB3FORMS_ACCESS_KEY": JSON.stringify(web3FormsAccessKey),
       "import.meta.env.VITE_NETLIFY_FORMS": JSON.stringify(netlifyFormsEnabled ? "true" : ""),
     },
   };
