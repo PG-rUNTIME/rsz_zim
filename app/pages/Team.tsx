@@ -180,10 +180,9 @@ export function Team() {
                 imageFile="Tinashe Mhlanga.jpeg"
               />
               <TeamMemberCard
-                name="Vacant"
+                name="Gamuchirai Murenje"
                 role="Partnerships & Communication Manager"
-                imageFile={null}
-                vacant
+                imageFile="Gamuchirai Murenje.jpeg"
               />
             </div>
           </div>
