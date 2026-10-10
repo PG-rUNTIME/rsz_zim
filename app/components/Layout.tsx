@@ -15,11 +15,12 @@ const NAV_ITEMS: NavItem[] = [
   {
     path: "/about",
     label: "About Us",
-    also: ["/team"],
+    also: ["/team", "/board"],
     children: [
       { path: "/about", label: "Who We Are" },
       { path: "/about#approach", label: "Our Approach" },
       { path: "/about#governance", label: "Governance" },
+      { path: "/board", label: "Our Board" },
       { path: "/team", label: "Our Team" },
     ],
   },
