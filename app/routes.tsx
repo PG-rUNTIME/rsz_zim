@@ -5,7 +5,10 @@ import { About } from "./pages/About";
 import { WhatWeDo } from "./pages/WhatWeDo";
 import { Programs } from "./pages/Programs";
 import { Contact } from "./pages/Contact";
+import { Board } from "./pages/Board";
 import { Team } from "./pages/Team";
+import { Impact } from "./pages/Impact";
+import { Partner } from "./pages/Partner";
 
 export const router = createBrowserRouter([
   {
@@ -17,7 +20,10 @@ export const router = createBrowserRouter([
       { path: "what-we-do", Component: WhatWeDo },
       { path: "programs", Component: Programs },
       { path: "contact", Component: Contact },
+      { path: "board", Component: Board },
       { path: "team", Component: Team },
+      { path: "impact", Component: Impact },
+      { path: "partner", Component: Partner },
     ],
   },
 ]);

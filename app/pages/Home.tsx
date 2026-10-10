@@ -1,176 +1,189 @@
 import { Link } from "react-router";
-import { ArrowRight, Shield, Users, Lightbulb, Globe } from "lucide-react";
+import { ArrowRight, Shield, Users } from "lucide-react";
 import { Seo } from "../components/Seo";
+import { THEMES } from "../content/themes";
+import { FEATURED_PROJECT as P, projectStatus } from "../content/project";
+
+const challenges = [
+  "Climate shocks",
+  "Livelihood insecurity",
+  "Food insecurity",
+  "Limited opportunities for youth",
+  "Social vulnerability",
+];
+const programmeModel = ["Listen", "Co-design", "Implement", "Measure", "Learn", "Scale"];
+const approach = ["Locally Led", "Participatory", "Inclusive", "Evidence-Based", "Partnership-Driven"];
+const partners = ["Academia", "Government", "NGOs", "Private Sector", "Communities"];
+
+function Pills({ items }: { items: string[] }) {
+  return (
+    <ul className="flex flex-wrap justify-center gap-2 md:gap-3">
+      {items.map((item) => (
+        <li key={item} className="rounded-full bg-green-100 px-4 py-2 text-sm text-green-900 md:text-base">
+          {item}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function Section({
+  title,
+  className = "",
+  children,
+}: {
+  title: string;
+  className?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section className={`py-8 md:py-14 ${className}`}>
+      <div className="mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
+        <h2 className="mb-5 text-2xl font-bold text-gray-900 md:mb-8 md:text-3xl lg:text-4xl">{title}</h2>
+        {children}
+      </div>
+    </section>
+  );
+}
 
 export function Home() {
   return (
     <div className="bg-white">
       <Seo
         title="Resilient Societies of Zimbabwe (RSZ)"
-        description="RSZ empowers Zimbabwean communities to face disasters and livelihood shocks through sustainable mitigation, preparedness, and resilience programmes. Based in Mutare, Manicaland."
+        description="RSZ works with vulnerable communities in Zimbabwe to strengthen climate resilience, sustainable livelihoods, food and nutrition security, and opportunities for women and youth. Based in Mutare, Manicaland."
       />
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-green-700 to-green-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-24 lg:py-32">
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-green-700 to-green-900 text-white">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 md:py-24 lg:px-8 lg:py-28">
           <div className="max-w-3xl">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 md:mb-6 leading-tight">
-              Building Resilient Communities in Zimbabwe
+            <h1 className="mb-4 text-3xl leading-tight sm:text-4xl md:mb-6 md:text-5xl lg:text-6xl">
+              Building Climate-Resilient, Inclusive and Self-Reliant Communities
             </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 text-green-100">
-              Empowering communities to respond effectively to livelihood shocks and stressors through sustainable, community-driven solutions.
+            <p className="mb-6 text-base text-green-100 sm:text-lg md:mb-8 md:text-xl lg:text-2xl">
+              We work with vulnerable communities in Zimbabwe to strengthen climate resilience, sustainable
+              livelihoods, food and nutrition security, and opportunities for women and youth.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+            <div className="flex flex-col gap-3 sm:flex-row md:gap-4">
               <Link
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-white text-green-700 px-6 md:px-8 py-3 md:py-4 rounded-lg hover:bg-green-50 transition-colors text-center"
+                to="/partner"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-green-500 px-6 py-3 text-center font-semibold text-white shadow-lg ring-2 ring-white hover:bg-green-400 md:px-8 md:py-4"
               >
-                Partner With Us
-                <ArrowRight size={20} />
+                Partner With Us <ArrowRight size={20} />
               </Link>
               <Link
-                to="/about"
-                className="inline-flex items-center justify-center gap-2 border-2 border-white text-white px-6 md:px-8 py-3 md:py-4 rounded-lg hover:bg-white/10 transition-colors text-center"
+                to="/what-we-do"
+                className="inline-flex items-center justify-center rounded-lg border-2 border-white px-6 py-3 text-center text-white hover:bg-white/10 md:px-8 md:py-4"
               >
-                Learn More
+                Explore Our Work
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Vision & Mission Section */}
-      <section className="py-8 md:py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            <div className="bg-white p-6 md:p-8 rounded-lg shadow-sm">
-              <div className="w-10 h-10 md:w-12 md:h-12 bg-green-100 rounded-lg flex items-center justify-center mb-3 md:mb-4">
-                <Shield className="text-green-600" size={24} />
-              </div>
-              <h2 className="text-xl md:text-2xl mb-3 md:mb-4">Our Vision</h2>
-              <p className="text-gray-700 text-sm md:text-base">
-                To lead in capacitating communities to respond effectively to livelihood shocks and stressors through sustainable, community-driven disaster mitigation, preparedness, response, and resilience-building.
-              </p>
-            </div>
-            <div className="bg-white p-6 md:p-8 rounded-lg shadow-sm">
-              <div className="w-10 h-10 md:w-12 md:h-12 bg-green-100 rounded-lg flex items-center justify-center mb-3 md:mb-4">
-                <Users className="text-green-600" size={24} />
-              </div>
-              <h2 className="text-xl md:text-2xl mb-3 md:mb-4">Our Mission</h2>
-              <p className="text-gray-700 text-sm md:text-base">
-                To reduce community vulnerability and exposure to disasters by strengthening capacities for absorptive, adaptive, and transformative resilience through collaboration with governments, local institutions, and communities.
-              </p>
-            </div>
-          </div>
-        </div>
+      {/* Quote */}
+      <section className="bg-green-50 py-6 md:py-8">
+        <p className="mx-auto max-w-4xl px-4 text-center text-base italic text-green-900 md:text-lg">
+          “We are locally rooted, professionally organised, technically capable, partnership-oriented and ready
+          to deliver practical resilience solutions with the right partners.”
+        </p>
       </section>
 
-      {/* Thematic Focus Areas */}
-      <section className="py-8 md:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-3 md:mb-4">Our Focus Areas</h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-              We work across multiple thematic areas to build comprehensive community resilience
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            {[
-              {
-                title: "Disaster Mitigation & Early Warning",
-                description: "Helping communities prepare for and respond to disasters through early warning systems and preparedness plans.",
-                icon: Shield,
-              },
-              {
-                title: "Climate-Resilient Livelihoods",
-                description: "Supporting sustainable livelihoods and ecosystems that can withstand climate shocks.",
-                icon: Globe,
-              },
-              {
-                title: "Economic Strengthening",
-                description: "Promoting economic empowerment and poverty eradication through sustainable initiatives.",
-                icon: Lightbulb,
-              },
-              {
-                title: "Gender-Inclusive Risk Reduction",
-                description: "Centering women, persons with disabilities, and youth in all programming to advance equality.",
-                icon: Users,
-              },
-              {
-                title: "Community Engagement",
-                description: "Building local capacity and strengthening community-led development structures.",
-                icon: Users,
-              },
-              {
-                title: "Innovation & Sustainability",
-                description: "Blending Indigenous Knowledge Systems with scientific approaches for lasting solutions.",
-                icon: Lightbulb,
-              },
-            ].map((area, index) => (
-              <div key={index} className="bg-white p-5 md:p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
-                <area.icon className="text-green-600 mb-3 md:mb-4" size={28} />
-                <h3 className="text-lg md:text-xl mb-2 md:mb-3">{area.title}</h3>
-                <p className="text-gray-600 text-sm md:text-base">{area.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Section title="The Challenge">
+        <Pills items={challenges} />
+      </Section>
 
-      {/* Areas of Operation */}
-      <section className="py-8 md:py-16 bg-green-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4 md:mb-6">Where We Work</h2>
-              <p className="text-base md:text-lg text-gray-700 mb-4 md:mb-6">
-                Headquartered in Mutare (Chikanga), Manicaland Province, RSZ operates primarily in disaster-prone districts such as Chimanimani and Chipinge, and in Mutare Rural and Mutare Urban.
-              </p>
-              <p className="text-lg text-gray-700 mb-6">
-                Our scalable models are ready for expansion to other provinces, territories, and regionally to support resilience initiatives in disaster response and mitigation.
-              </p>
+      <Section title="Our Response" className="bg-gray-50">
+        <ul className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
+          {THEMES.map((t) => (
+            <li key={t.id}>
               <Link
-                to="/programs"
-                className="inline-flex items-center gap-2 text-green-600 hover:text-green-700"
+                to={`/what-we-do#${t.id}`}
+                className="block h-full rounded-lg border border-gray-200 bg-white p-4 hover:border-green-600 hover:shadow-md md:p-6"
               >
-                View Our Programs & Impact
-                <ArrowRight size={20} />
+                <div className="mb-2 text-3xl" aria-hidden>{t.icon}</div>
+                <div className="font-medium text-gray-900">{t.title}</div>
               </Link>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-sm">
-              <h3 className="text-xl mb-4">Registration & Status</h3>
-              <div className="space-y-3 text-gray-700">
-                <p>
-                  <span className="font-semibold">Registration:</span> PVO 19/20
-                </p>
-                <p>
-                  <span className="font-semibold">Established:</span> 2020
-                </p>
-                <p>
-                  <span className="font-semibold">Legal Status:</span> Registered under the Private Voluntary Organisations (PVO) Act [Chapter 17:05] of the Government of Zimbabwe
-                </p>
-                <p>
-                  <span className="font-semibold">Headquarters:</span> Stand Number 2822, Mutare (Chikanga), Manicaland Province, Zimbabwe
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            </li>
+          ))}
+        </ul>
+      </Section>
 
-      {/* CTA Section */}
-      <section className="py-8 md:py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4 md:mb-6">Ready to Partner With Us?</h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 md:mb-8">
-            Join us in building resilient communities across Zimbabwe and beyond
+      <Section title="Our Programme Model">
+        <ol className="flex flex-col items-stretch gap-2 md:flex-row md:flex-wrap md:items-center md:justify-center">
+          {programmeModel.map((step, i) => (
+            <li key={step} className="flex items-center justify-center gap-2">
+              <span className="w-full rounded-md bg-green-600 px-5 py-2.5 text-white md:w-auto">
+                {i + 1}. {step}
+              </span>
+              {i < programmeModel.length - 1 ? (
+                <span aria-hidden className="hidden text-green-600 md:inline">→</span>
+              ) : null}
+            </li>
+          ))}
+        </ol>
+      </Section>
+
+      <Section title="Our Approach" className="bg-gray-50">
+        <Pills items={approach} />
+        <Link to="/about#approach" className="mt-6 inline-flex items-center gap-2 text-green-700 hover:text-green-800">
+          How we work <ArrowRight size={18} />
+        </Link>
+      </Section>
+
+      {/* Featured project teaser */}
+      <Section title="Featured Project">
+        <div className="mx-auto max-w-3xl rounded-xl border-2 border-green-600 p-6 text-left md:p-8">
+          <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-green-700">{projectStatus()}</p>
+          <h3 className="mb-3 text-xl md:text-2xl">{P.shortTitle}</h3>
+          <p className="mb-4 text-gray-700">
+            📍 {P.location} · 👥 {P.reach} · ⏱ {P.duration}
           </p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center justify-center gap-2 bg-green-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg hover:bg-green-700 transition-colors"
-          >
-            Get in Touch
-            <ArrowRight size={20} />
+          <Link to="/programs" className="inline-flex items-center gap-2 font-semibold text-green-700 hover:text-green-800">
+            See the project <ArrowRight size={18} />
           </Link>
+        </div>
+      </Section>
+
+      <Section title="Impact & Learning" className="bg-gray-50">
+        <ul className="flex flex-wrap justify-center gap-2 md:gap-3">
+          {[
+            { label: "Stories", to: "/impact#stories" },
+            { label: "Reports", to: "/impact#reports" },
+            { label: "Publications", to: "/impact#publications" },
+            { label: "News", to: "/impact#news" },
+          ].map((l) => (
+            <li key={l.label}>
+              <Link to={l.to} className="block rounded-full bg-white px-5 py-2 text-green-800 shadow-sm hover:bg-green-100">
+                {l.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      <Section title="Our Partners">
+        <Pills items={partners} />
+      </Section>
+
+      {/* Vision & mission, kept from the previous homepage */}
+      <section className="bg-gray-50 py-8 md:py-14">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 sm:px-6 md:grid-cols-2 md:gap-8 lg:px-8">
+          <div className="rounded-lg bg-white p-6 shadow-sm md:p-8">
+            <Shield className="mb-3 text-green-600" size={28} />
+            <h2 className="mb-3 text-xl md:text-2xl">Our Vision</h2>
+            <p className="text-sm text-gray-700 md:text-base">
+              To lead in capacitating communities to respond effectively to livelihood shocks and stressors through sustainable, community-driven disaster mitigation, preparedness, response, and resilience-building.
+            </p>
+          </div>
+          <div className="rounded-lg bg-white p-6 shadow-sm md:p-8">
+            <Users className="mb-3 text-green-600" size={28} />
+            <h2 className="mb-3 text-xl md:text-2xl">Our Mission</h2>
+            <p className="text-sm text-gray-700 md:text-base">
+              To reduce community vulnerability and exposure to disasters by strengthening capacities for absorptive, adaptive, and transformative resilience through collaboration with governments, local institutions, and communities.
+            </p>
+          </div>
         </div>
       </section>
     </div>

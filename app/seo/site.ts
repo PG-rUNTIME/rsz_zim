@@ -9,7 +9,7 @@ export const SITE_NAME = "Resilient Societies of Zimbabwe";
  * Public inbox for inquiries (mailto, footer, JSON-LD, form copy).
  * Web3Forms delivers to the inbox configured for your access key — set that dashboard email to this address.
  */
-export const SITE_INQUIRY_EMAIL = "contactus@rszimbabwe.org";
+export const SITE_INQUIRY_EMAIL = "info@rszimbabwe.org";
 export const SITE_TAGLINE = "Building Community Resilience";
 
 export const DEFAULT_DESCRIPTION =

@@ -1,53 +1,8 @@
-import { Layers, Building2, Handshake, TrendingUp } from "lucide-react";
+import { Link } from "react-router";
 import { Seo } from "../components/Seo";
+import { THEMES } from "../content/themes";
 
 export function WhatWeDo() {
-  const thematicAreas = [
-    {
-      title: "Disaster Mitigation, Preparedness & Early Warning",
-      description: "We enable communities to map hazards, co-design preparedness plans including early-warning systems, evacuation routes, contingency funds, and communication strategies, and implement risk-reduction activities fostering ownership and dignity.",
-    },
-    {
-      title: "Climate-Resilient Livelihoods & Ecosystems",
-      description: "Supporting communities to develop sustainable livelihoods that can withstand climate shocks while protecting and restoring local ecosystems for long-term resilience.",
-    },
-    {
-      title: "Economic Strengthening & Poverty Eradication",
-      description: "Promoting economic empowerment through social enterprises, micro-funds, and local revenue streams that ensure sustainability and reduce poverty at the community level.",
-    },
-    {
-      title: "Gender-Inclusive Risk Reduction",
-      description: "Centering women, persons with disabilities, young people, and children in all programming to advance gender equality through equitable decision-making, leadership, and resource allocation.",
-    },
-    {
-      title: "Community Engagement & Capacity Strengthening",
-      description: "Building local capacity and strengthening community-led development structures to support resilience initiatives at the grassroots level.",
-    },
-  ];
-
-  const approaches = [
-    {
-      icon: Layers,
-      title: "Community-Led Disaster Mitigation and Response",
-      description: "We enable communities to map hazards, co-design preparedness plans (e.g., early-warning systems, evacuation routes, contingency funds, communication strategy), and implement risk-reduction activities fostering ownership and dignity.",
-    },
-    {
-      icon: Building2,
-      title: "Collaboration with Governments and Local Institutions",
-      description: "We partner with Government of Zimbabwe entities (Civil Protection Units, line ministries), local institutions, and established development structures at national, provincial, district, ward, and village levels to integrate plans into frameworks, strengthen capacities, and contribute to policy.",
-    },
-    {
-      icon: Handshake,
-      title: "Partnerships with Local, National, and International Bodies",
-      description: "We value partnerships with NGOs, CBOs, faith-based groups, academic institutions, and specialized actors (e.g., UN agencies, environmental NGOs, agricultural extensions, child-protection organizations and youth empowerment bodies) for multi-sectoral impact, knowledge sharing, and global consultancy services.",
-    },
-    {
-      icon: TrendingUp,
-      title: "Resource Mobilization and Sustainability",
-      description: "We secure funding from donors, governments, CSR, and foundations, while promoting community co-investment and models like micro-funds, social enterprises, and local revenue streams to ensure sustainability and scalability.",
-    },
-  ];
-
   return (
     <div className="bg-white">
       <Seo
@@ -68,54 +23,38 @@ export function WhatWeDo() {
       <section className="py-8 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-3 md:mb-4">Thematic Focus Areas</h2>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-3 md:mb-4">Our Work</h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-              Our work spans five critical areas that build comprehensive community resilience
+              Six connected themes that build comprehensive community resilience
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {thematicAreas.map((area, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
+            {THEMES.map((theme) => (
+              <div
+                key={theme.id}
+                id={theme.id}
+                className="scroll-mt-24 bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow"
+              >
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-white">{index + 1}</span>
-                  </div>
+                  <span className="text-3xl" aria-hidden>{theme.icon}</span>
                   <div>
-                    <h3 className="text-xl mb-3">{area.title}</h3>
-                    <p className="text-gray-700">{area.description}</p>
+                    <h3 className="text-xl mb-3">{theme.title}</h3>
+                    <p className="text-gray-700">{theme.description}</p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Our Approach */}
-      <section className="py-8 md:py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-3 md:mb-4">Our Implementation Approach</h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-              We value strategic partnerships with local institutions and established development structures
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {approaches.map((approach, index) => (
-              <div key={index} className="bg-white p-8 rounded-lg shadow-sm">
-                <div className="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                  <approach.icon className="text-green-600" size={28} />
-                </div>
-                <h3 className="text-2xl mb-4">{approach.title}</h3>
-                <p className="text-gray-700">{approach.description}</p>
-              </div>
-            ))}
-          </div>
+          <p className="mt-8 text-center">
+            <Link to="/about#approach" className="text-green-600 hover:text-green-700">
+              See how we work: our approach →
+            </Link>
+          </p>
         </div>
       </section>
 
       {/* Staff Expertise */}
-      <section className="py-8 md:py-16">
+      <section className="py-8 md:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-3 md:mb-4">Staff Expertise and Skills</h2>

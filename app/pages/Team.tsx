@@ -1,68 +1,6 @@
-import { User } from "lucide-react";
 import { Seo } from "../components/Seo";
-import { cn } from "../components/ui/utils";
-
-function photoPath(filename: string): string {
-  return `/${encodeURIComponent(filename)}`;
-}
-
-const cardFrameClass =
-  "border-green-600 bg-gradient-to-b from-green-50 to-white shadow-md shadow-green-900/10";
-
-function TeamMemberCard({
-  name,
-  role,
-  imageFile,
-  vacant,
-  imageClassName,
-}: {
-  name: string;
-  role: string;
-  imageFile: string | null;
-  vacant?: boolean;
-  /** Extra classes on the photo (e.g. nudge position to hide a source edge without cropping the face). */
-  imageClassName?: string;
-}) {
-  const showPhoto = imageFile && !vacant;
-
-  return (
-    <article
-      className={`flex flex-col items-center rounded-xl border-2 p-4 pt-5 text-center ${cardFrameClass}`}
-    >
-      <div
-        className="relative mb-4 h-36 w-36 shrink-0 overflow-hidden rounded-full bg-gray-200 shadow-inner ring-4 ring-green-100 ring-offset-2 ring-offset-white md:h-40 md:w-40"
-      >
-        {showPhoto ? (
-          <img
-            src={photoPath(imageFile)}
-            alt={`Portrait of ${name}`}
-            className={cn(
-              "h-full w-full object-cover object-top",
-              imageClassName,
-            )}
-            loading="lazy"
-            decoding="async"
-          />
-        ) : vacant ? (
-          <div className="flex h-full w-full items-center justify-center bg-green-50 text-2xl font-semibold text-green-400">
-            —
-          </div>
-        ) : (
-          <div className="flex h-full w-full items-center justify-center bg-green-50 text-green-600">
-            <User className="h-14 w-14" strokeWidth={1.25} aria-hidden />
-          </div>
-        )}
-      </div>
-      <h3 className="text-lg font-bold leading-snug text-gray-900 md:text-xl">{name}</h3>
-      <p className="mt-1 text-sm leading-snug text-gray-700 md:text-base">{role}</p>
-      {vacant ? (
-        <p className="mt-2 text-xs font-medium uppercase tracking-wide text-green-800">
-          Position vacant
-        </p>
-      ) : null}
-    </article>
-  );
-}
+import { TeamMemberCard } from "../components/PersonCard";
+import { BIOS } from "../content/bios";
 
 /** Vertical connector between tiers */
 function ConnectorDown({ tall = false }: { tall?: boolean }) {
@@ -117,6 +55,7 @@ export function Team() {
             <div className="w-full max-w-sm">
               <TeamMemberCard
                 name="Wonder Chinhuru"
+                bio={BIOS.wonder}
                 role="Executive Director"
                 imageFile="Wonder Chinhuru.jpeg"
               />
@@ -131,6 +70,7 @@ export function Team() {
             <div className="grid w-full max-w-5xl grid-cols-1 gap-6 md:grid-cols-3 md:gap-4">
               <TeamMemberCard
                 name="Dr. Nelson Chanza"
+                bio={BIOS.nelson}
                 role="Program Technical Advisor"
                 imageFile="Dr Nelson Chanza.jpeg"
               />
@@ -141,6 +81,7 @@ export function Team() {
               />
               <TeamMemberCard
                 name="Evelyn Ngorima"
+                bio={BIOS.evelyn}
                 role="Policy & Legal Advisor"
                 imageFile="Evelyn Ngorima.jpeg"
               />
@@ -176,14 +117,38 @@ export function Team() {
               />
               <TeamMemberCard
                 name="Tinashe Mhlanga"
+                bio={BIOS.tinashe}
                 role="Finance & Admin Manager"
                 imageFile="Tinashe Mhlanga.jpeg"
               />
               <TeamMemberCard
                 name="Gamuchirai Murenje"
+                bio={BIOS.gamuchirai}
                 role="Partnerships & Communication Manager"
                 imageFile="Gamuchirai Murenje.jpeg"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-50 py-10 md:py-14">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <h2 className="mb-8 text-center text-2xl font-bold text-gray-900 md:text-3xl">
+            Volunteers &amp; Community Contributors
+          </h2>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className="rounded-xl border-2 border-green-600 bg-white p-6">
+              <h3 className="text-lg font-bold text-gray-900 md:text-xl">Resource Mobilisation Associates</h3>
+              <p className="mt-2 text-gray-700">
+                Supporting opportunity identification, donor research, partnership development and resource
+                mobilisation.
+              </p>
+            </div>
+            <div className="rounded-xl border-2 border-green-600 bg-white p-6">
+              <h3 className="text-lg font-bold text-gray-900 md:text-xl">
+                Communication and Learning Assistant Volunteer
+              </h3>
             </div>
           </div>
         </div>
