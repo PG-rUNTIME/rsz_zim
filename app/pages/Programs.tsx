@@ -1,5 +1,7 @@
 import { BarChart3, Database, Lock, Target, Users, MapPin } from "lucide-react";
+import { Link } from "react-router";
 import { Seo } from "../components/Seo";
+import { PFUMVUDZA_GALLERY as G } from "../content/gallery";
 import { FEATURED_PROJECT as P, projectStatus } from "../content/project";
 
 export function Programs() {
@@ -38,6 +40,24 @@ export function Programs() {
                 <span className="text-gray-800">{fact.text}</span>
               </div>
             ))}
+          </div>
+
+          <div className="mb-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 md:gap-3">
+              {[4, 8, 13].map((n, i) => (
+                <img
+                  key={n}
+                  src={G.photos[n - 1].src}
+                  alt={G.photos[n - 1].alt}
+                  loading="lazy"
+                  className={`aspect-[3/2] w-full rounded-lg object-cover ${i === 2 ? "hidden sm:block" : ""}`}
+                />
+              ))}
+            </div>
+            <p className="mt-2 text-sm text-gray-600">
+              Pfumvudza demonstration, Ward 34 Chiwere, Mutare Rural.{" "}
+              <Link to="/impact#gallery" className="text-green-700 underline">View the full photo gallery</Link>
+            </p>
           </div>
 
           <h3 className="text-xl md:text-2xl mb-3">The model</h3>

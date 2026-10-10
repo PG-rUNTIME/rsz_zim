@@ -1,5 +1,7 @@
 import { Link } from "react-router";
 import { Seo } from "../components/Seo";
+import { PhotoGallery } from "../components/PhotoGallery";
+import { PFUMVUDZA_GALLERY as G } from "../content/gallery";
 import { FACEBOOK_PAGE_URL, LINKEDIN_URL } from "../seo/site";
 
 const SECTIONS = [
@@ -23,6 +25,7 @@ export function Impact() {
             Stories • Data • Reports • Research • Resources
           </p>
           <nav aria-label="On this page" className="mt-6 flex flex-wrap gap-2">
+            <a href="#gallery" className="rounded-full bg-white/15 px-4 py-2 text-sm hover:bg-white/25">Photo Gallery</a>
             {SECTIONS.map((s) => (
               <a key={s.id} href={`#${s.id}`} className="rounded-full bg-white/15 px-4 py-2 text-sm hover:bg-white/25">
                 {s.title}
@@ -34,6 +37,12 @@ export function Impact() {
 
       <section className="py-8 md:py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div id="gallery" className="scroll-mt-24 rounded-lg border border-gray-200 p-6 md:p-8">
+            <h2 className="text-2xl md:text-3xl mb-2">Photo Gallery</h2>
+            <h3 className="text-lg md:text-xl text-green-700 mb-2">{G.title}</h3>
+            <p className="text-gray-600 mb-6">{G.caption}</p>
+            <PhotoGallery photos={G.photos} />
+          </div>
           {SECTIONS.map((s) => (
             <div key={s.id} id={s.id} className="scroll-mt-24 rounded-lg border border-gray-200 p-6 md:p-8">
               <h2 className="text-2xl md:text-3xl mb-2">{s.title}</h2>
