@@ -189,6 +189,28 @@ export function Team() {
         </div>
       </section>
 
+      <section className="bg-gray-50 py-10 md:py-14">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <h2 className="mb-8 text-center text-2xl font-bold text-gray-900 md:text-3xl">
+            Volunteers &amp; Community Contributors
+          </h2>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className="rounded-xl border-2 border-green-600 bg-white p-6">
+              <h3 className="text-lg font-bold text-gray-900 md:text-xl">Resource Mobilisation Associates</h3>
+              <p className="mt-2 text-gray-700">
+                Supporting opportunity identification, donor research, partnership development and resource
+                mobilisation.
+              </p>
+            </div>
+            <div className="rounded-xl border-2 border-green-600 bg-white p-6">
+              <h3 className="text-lg font-bold text-gray-900 md:text-xl">
+                Communication and Learning Assistant Volunteer
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">

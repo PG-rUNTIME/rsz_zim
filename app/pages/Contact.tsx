@@ -1,5 +1,6 @@
 import { MapPin, Phone, Mail, Send } from "lucide-react";
 import { useState } from "react";
+import { useSearchParams } from "react-router";
 import { Seo } from "../components/Seo";
 import { submitToWeb3Forms } from "../lib/web3formsSubmit";
 import {
@@ -37,11 +38,13 @@ function buildContactMessage(
 }
 
 export function Contact() {
+  const [searchParams] = useSearchParams();
+  const initialSubject = searchParams.get("subject") ?? "";
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     organization: "",
-    subject: "",
+    subject: initialSubject in SUBJECT_LABELS ? initialSubject : "",
     message: "",
   });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
@@ -176,7 +179,7 @@ export function Contact() {
 
           {/* Contact Form */}
           <div className="max-w-3xl mx-auto">
-            <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg border border-gray-200">
+            <div id="contact-form" className="scroll-mt-24 bg-white p-6 md:p-8 rounded-lg shadow-lg border border-gray-200">
               <h2 className="text-2xl md:text-3xl mb-4 md:mb-6">Send Us a Message</h2>
               {status === "sent" ? (
                 <div

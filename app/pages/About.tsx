@@ -1,7 +1,30 @@
-import { CheckCircle, Target, Eye } from "lucide-react";
+import { CheckCircle, Target, Eye, Layers, Building2, Handshake, TrendingUp } from "lucide-react";
 import { Seo } from "../components/Seo";
 
 export function About() {
+  const approaches = [
+    {
+      icon: Layers,
+      title: "Community-Led Disaster Mitigation and Response",
+      description: "We enable communities to map hazards, co-design preparedness plans (e.g., early-warning systems, evacuation routes, contingency funds, communication strategy), and implement risk-reduction activities fostering ownership and dignity.",
+    },
+    {
+      icon: Building2,
+      title: "Collaboration with Governments and Local Institutions",
+      description: "We partner with Government of Zimbabwe entities (Civil Protection Units, line ministries), local institutions, and established development structures at national, provincial, district, ward, and village levels to integrate plans into frameworks, strengthen capacities, and contribute to policy.",
+    },
+    {
+      icon: Handshake,
+      title: "Partnerships with Local, National, and International Bodies",
+      description: "We value partnerships with NGOs, CBOs, faith-based groups, academic institutions, and specialized actors (e.g., UN agencies, environmental NGOs, agricultural extensions, child-protection organizations and youth empowerment bodies) for multi-sectoral impact, knowledge sharing, and global consultancy services.",
+    },
+    {
+      icon: TrendingUp,
+      title: "Resource Mobilization and Sustainability",
+      description: "We secure funding from donors, governments, CSR, and foundations, while promoting community co-investment and models like micro-funds, social enterprises, and local revenue streams to ensure sustainability and scalability.",
+    },
+  ];
+
   const principles = [
     {
       title: "Transparency",
@@ -132,8 +155,31 @@ export function About() {
         </div>
       </section>
 
+      {/* Our Approach */}
+      <section id="approach" className="scroll-mt-24 py-8 md:py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-3 md:mb-4">Our Approach</h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+              We value strategic partnerships with local institutions and established development structures
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {approaches.map((approach, index) => (
+              <div key={index} className="bg-white p-8 rounded-lg shadow-sm">
+                <div className="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                  <approach.icon className="text-green-600" size={28} />
+                </div>
+                <h3 className="text-2xl mb-4">{approach.title}</h3>
+                <p className="text-gray-700">{approach.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Organizational Structure */}
-      <section className="py-16">
+      <section id="governance" className="scroll-mt-24 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl mb-6">Organizational Capacity</h2>

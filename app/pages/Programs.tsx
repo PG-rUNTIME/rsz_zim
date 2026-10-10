@@ -1,5 +1,6 @@
 import { BarChart3, Database, Lock, Target, Users, MapPin } from "lucide-react";
 import { Seo } from "../components/Seo";
+import { FEATURED_PROJECT as P, projectStatus } from "../content/project";
 
 export function Programs() {
   return (
@@ -18,8 +19,58 @@ export function Programs() {
         </div>
       </section>
 
+      {/* Featured Project */}
+      <section id="featured-project" className="py-8 md:py-16 scroll-mt-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-sm font-semibold uppercase tracking-wide text-green-700 mb-2">
+            Featured Project · {projectStatus()}
+          </p>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4 md:mb-6">{P.title}</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-8">
+            {[
+              { icon: "📍", text: P.location },
+              { icon: "👥", text: P.reach },
+              { icon: "⏱", text: P.duration },
+              { icon: "🎯", text: P.focus },
+            ].map((fact) => (
+              <div key={fact.text} className="bg-green-50 rounded-lg p-4 flex items-start gap-3">
+                <span aria-hidden>{fact.icon}</span>
+                <span className="text-gray-800">{fact.text}</span>
+              </div>
+            ))}
+          </div>
+
+          <h3 className="text-xl md:text-2xl mb-3">The model</h3>
+          <ol className="flex flex-col md:flex-row md:flex-wrap md:items-center gap-2 mb-8 text-gray-800">
+            {P.model.map((step, i) => (
+              <li key={step} className="flex items-center gap-2">
+                <span className="bg-green-600 text-white px-3 py-2 rounded-md text-sm md:text-base">{step}</span>
+                {i < P.model.length - 1 ? <span aria-hidden className="hidden md:inline text-green-600">→</span> : null}
+              </li>
+            ))}
+          </ol>
+
+          <h3 className="text-xl md:text-2xl mb-3">Project Pillars</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            {P.pillars.map((pillar) => (
+              <div key={pillar.title} className="bg-white border border-gray-200 rounded-lg p-6">
+                <h4 className="text-lg md:text-xl mb-3">{pillar.title}</h4>
+                <ul className="space-y-2 text-gray-700">
+                  {pillar.items.map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <span className="text-green-600">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Areas of Operation */}
-      <section className="py-16">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -80,7 +131,7 @@ export function Programs() {
       </section>
 
       {/* Program Implementation */}
-      <section className="py-8 md:py-16 bg-gray-50">
+      <section className="py-8 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-3 md:mb-4">Our Program Portfolio</h2>
