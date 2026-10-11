@@ -8,7 +8,7 @@ export const FEATURED_PROJECT = {
   focus: "Climate resilience + health-sensitive vulnerability reduction",
   /** Last day of the project; the status label is derived from it. */
   endsOn: "2026-11-30",
-  model: ["Training of Trainers", "Lead Farmers", "Fellow Farmers", "Household Adoption", "Community Resilience"],
+  model: ["Lead Farmer Trainer of Trainers", "Fellow Farmers", "Household Adoption", "Community Climate Resilience"],
   pillars: [
     {
       title: "🌱 Climate Resilience",

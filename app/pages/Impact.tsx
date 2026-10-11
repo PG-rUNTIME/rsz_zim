@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import { Seo } from "../components/Seo";
 import { PhotoGallery } from "../components/PhotoGallery";
 import { PFUMVUDZA_GALLERY as G } from "../content/gallery";
-import { FACEBOOK_PAGE_URL, LINKEDIN_URL } from "../seo/site";
+import { FACEBOOK_PAGE_URL, LINKEDIN_URL, X_TWITTER_URL } from "../seo/site";
 
 const SECTIONS = [
   { id: "stories", title: "Stories", blurb: "Voices and experiences from the communities we work with." },
@@ -49,7 +49,8 @@ export function Impact() {
               <p className="text-gray-600 mb-4">{s.blurb}</p>
               <p className="rounded-md bg-green-50 p-4 text-gray-700">
                 New {s.title.toLowerCase()} are coming soon. In the meantime, follow us on{" "}
-                <a href={FACEBOOK_PAGE_URL} target="_blank" rel="noopener noreferrer" className="text-green-700 underline">Facebook</a>{" "}
+                <a href={FACEBOOK_PAGE_URL} target="_blank" rel="noopener noreferrer" className="text-green-700 underline">Facebook</a>,{" "}
+                <a href={X_TWITTER_URL} target="_blank" rel="noopener noreferrer" className="text-green-700 underline">X</a>{" "}
                 or{" "}
                 <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="text-green-700 underline">LinkedIn</a>
                 , or <Link to="/contact" className="text-green-700 underline">contact us</Link> to request materials.

@@ -5,7 +5,7 @@ import { InquiryChat } from "./InquiryChat";
 import { CtaBand } from "./CtaBand";
 import { OrganizationJsonLd } from "./OrganizationJsonLd";
 import { THEMES } from "../content/themes";
-import { FACEBOOK_PAGE_URL, LINKEDIN_URL, SITE_INQUIRY_EMAIL } from "../seo/site";
+import { FACEBOOK_PAGE_URL, LINKEDIN_URL, SITE_INQUIRY_EMAIL, X_TWITTER_URL } from "../seo/site";
 
 type NavChild = { path: string; label: string };
 type NavItem = { path: string; label: string; children?: NavChild[]; also?: string[] };
@@ -19,8 +19,7 @@ const NAV_ITEMS: NavItem[] = [
     children: [
       { path: "/about", label: "Who We Are" },
       { path: "/about#approach", label: "Our Approach" },
-      { path: "/about#governance", label: "Governance" },
-      { path: "/board", label: "Our Board" },
+      { path: "/board", label: "Governance" },
       { path: "/team", label: "Our Team" },
     ],
   },
@@ -41,6 +40,7 @@ const NAV_ITEMS: NavItem[] = [
     ],
   },
   { path: "/contact", label: "Contact" },
+  { path: "/partner#donate", label: "Donate" },
 ];
 
 const partnerButtonClass =
@@ -107,8 +107,8 @@ export function Layout() {
                 className="h-12 w-auto shrink-0 object-contain object-left md:h-14"
                 decoding="async"
                 fetchPriority="high"
-                width={577}
-                height={568}
+                width={270}
+                height={240}
               />
               <div className="min-w-0">
                 <div className="font-bold text-sm sm:text-base md:text-xl text-gray-900 truncate">Resilient Societies of Zimbabwe</div>
@@ -265,7 +265,7 @@ export function Layout() {
                   {SITE_INQUIRY_EMAIL}
                 </a>
               </p>
-              <p className="text-gray-400 text-sm">Phone: +263 772 978 904</p>
+              <p className="text-gray-400 text-sm">Phone: +263 778 934 153 / +263 772 978 904</p>
               <p className="text-gray-400 text-sm mt-2 flex flex-wrap gap-x-4 gap-y-1">
                 <a
                   href={FACEBOOK_PAGE_URL}
@@ -274,6 +274,14 @@ export function Layout() {
                   className="hover:text-white transition-colors"
                 >
                   Facebook
+                </a>
+                <a
+                  href={X_TWITTER_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  X
                 </a>
                 <a
                   href={LINKEDIN_URL}

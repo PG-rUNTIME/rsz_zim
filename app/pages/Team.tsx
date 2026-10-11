@@ -2,144 +2,54 @@ import { Seo } from "../components/Seo";
 import { TeamMemberCard } from "../components/PersonCard";
 import { BIOS } from "../content/bios";
 
-/** Vertical connector between tiers */
-function ConnectorDown({ tall = false }: { tall?: boolean }) {
-  return (
-    <div className="flex justify-center py-0" aria-hidden>
-      <div className={`w-0.5 bg-green-600/40 ${tall ? "h-10 md:h-12" : "h-6 md:h-8"}`} />
-    </div>
-  );
-}
-
-/** Horizontal bar with three downward stubs (desktop) */
-function BranchThreeDown() {
-  return (
-    <div className="relative mx-auto hidden h-8 w-full max-w-4xl md:block" aria-hidden>
-      <div className="absolute left-[16.666%] right-[16.666%] top-0 h-0.5 bg-green-600/40" />
-      <div className="absolute left-[16.666%] top-0 h-8 w-0.5 -translate-x-1/2 bg-green-600/40" />
-      <div className="absolute left-1/2 top-0 h-8 w-0.5 -translate-x-1/2 bg-green-600/40" />
-      <div className="absolute left-[83.333%] top-0 h-8 w-0.5 -translate-x-1/2 bg-green-600/40" />
-    </div>
-  );
-}
+const PROGRAMS_TEAM = [
+  { name: "Wonder Chinhuru", role: "Executive Director", imageFile: "Wonder Chinhuru.jpeg", bio: BIOS.wonder },
+  { name: "Godfrey Madyauta", role: "Programs Director", imageFile: "Godfrey Madyauta.jpeg", bio: BIOS.godfrey },
+  { name: "Tinashe Mhlanga", role: "Finance and Administration Manager", imageFile: "Tinashe Mhlanga.jpeg", bio: BIOS.tinashe },
+];
 
 export function Team() {
   return (
     <div className="bg-white">
       <Seo
         title="Our Team | RSZ Zimbabwe"
-        description="RSZ organogram: Executive Director, senior advisors and directors, and programme operations—including resource mobilisation, finance, and partnerships."
+        description="Meet the RSZ Programs Team: Executive Director, Programs Director, and Finance and Administration Manager, supported by resource mobilisation and communications volunteers."
       />
 
       <section className="bg-gradient-to-br from-green-700 to-green-900 py-12 text-white md:py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="mb-4 text-3xl sm:text-4xl lg:text-5xl">Our Team</h1>
           <p className="max-w-3xl text-base text-green-100 sm:text-lg md:text-xl lg:text-2xl">
-            Resilient Societies of Zimbabwe (RSZ): leadership structure and key roles
+            Resilient Societies of Zimbabwe (RSZ): the people behind our programmes
           </p>
         </div>
       </section>
 
       <section className="py-10 md:py-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 text-center md:mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">Organogram</h2>
-            <p className="mx-auto mt-2 max-w-2xl text-gray-600">
-              How our team is structured: the Executive Director, senior leadership, and
-              programme &amp; operations roles reporting to the Programs Director / MEAL.
-            </p>
-          </div>
-
-          <div className="flex flex-col items-center">
-            {/* Level 1 — Executive Director */}
-            <div className="w-full max-w-sm">
-              <TeamMemberCard
-                name="Wonder Chinhuru"
-                bio={BIOS.wonder}
-                role="Executive Director"
-                imageFile="Wonder Chinhuru.jpeg"
-              />
-            </div>
-
-            <ConnectorDown tall />
-
-            <BranchThreeDown />
-            <div className="h-2 md:hidden" aria-hidden />
-
-            {/* Level 2 — reports to ED */}
-            <div className="grid w-full max-w-5xl grid-cols-1 gap-6 md:grid-cols-3 md:gap-4">
-              <TeamMemberCard
-                name="Dr. Nelson Chanza"
-                bio={BIOS.nelson}
-                role="Program Technical Advisor"
-                imageFile="Dr Nelson Chanza.jpeg"
-              />
-              <TeamMemberCard
-                name="Godfrey Madyauta"
-                role="Programs Director / MEAL"
-                imageFile="Godfrey Madyauta.jpeg"
-              />
-              <TeamMemberCard
-                name="Evelyn Ngorima"
-                bio={BIOS.evelyn}
-                role="Policy & Legal Advisor"
-                imageFile="Evelyn Ngorima.jpeg"
-              />
-            </div>
-
-            <p className="mb-2 mt-10 max-w-xl text-center text-sm font-medium text-gray-600 md:mt-12">
-              Programme &amp; operations
-              <span className="block text-xs font-normal text-gray-500">
-                (reporting to the Programs Director / MEAL)
-              </span>
-            </p>
-
-            {/* Connector: only middle column on desktop */}
-            <div className="mx-auto hidden w-full max-w-5xl grid-cols-3 md:grid">
-              <div />
-              <ConnectorDown />
-              <div />
-            </div>
-            <div className="flex justify-center md:hidden" aria-hidden>
-              <div className="h-6 w-0.5 bg-green-600/40" />
-            </div>
-
-            <BranchThreeDown />
-            <div className="h-2 md:hidden" aria-hidden />
-
-            {/* Level 3 — reports to Programs Director / MEAL */}
-            <div className="grid w-full max-w-5xl grid-cols-1 gap-6 md:grid-cols-3 md:gap-4">
-              <TeamMemberCard
-                name="Emmanuel Mazangwa"
-                role="Resource Mobilisation & Operations Manager"
-                imageFile="Emmanuel Mazangwa.jpeg"
-                imageClassName="-translate-y-1"
-              />
-              <TeamMemberCard
-                name="Tinashe Mhlanga"
-                bio={BIOS.tinashe}
-                role="Finance & Admin Manager"
-                imageFile="Tinashe Mhlanga.jpeg"
-              />
-              <TeamMemberCard
-                name="Gamuchirai Murenje"
-                bio={BIOS.gamuchirai}
-                role="Partnerships & Communication Manager"
-                imageFile="Gamuchirai Murenje.jpeg"
-              />
-            </div>
+          <h2 className="mb-8 text-center text-2xl font-bold text-gray-900 md:text-3xl">Programs Team</h2>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {PROGRAMS_TEAM.map((m) => (
+              <TeamMemberCard key={m.name} {...m} />
+            ))}
           </div>
         </div>
       </section>
 
       <section className="bg-gray-50 py-10 md:py-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="mb-8 text-center text-2xl font-bold text-gray-900 md:text-3xl">
-            Volunteers &amp; Community Contributors
-          </h2>
+          <h2 className="mb-8 text-center text-2xl font-bold text-gray-900 md:text-3xl">Volunteers</h2>
+          <div className="mx-auto mb-8 max-w-sm">
+            <TeamMemberCard
+              name="Virginia Masocha"
+              role="Resource Mobilisation Associate"
+              imageFile="Virginia Masocha.jpg"
+              bio={BIOS.virginia}
+            />
+          </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div className="rounded-xl border-2 border-green-600 bg-white p-6">
-              <h3 className="text-lg font-bold text-gray-900 md:text-xl">Resource Mobilisation Associates</h3>
+              <h3 className="text-lg font-bold text-gray-900 md:text-xl">4 Resource Mobilisation Associates</h3>
               <p className="mt-2 text-gray-700">
                 Supporting opportunity identification, donor research, partnership development and resource
                 mobilisation.
@@ -147,7 +57,7 @@ export function Team() {
             </div>
             <div className="rounded-xl border-2 border-green-600 bg-white p-6">
               <h3 className="text-lg font-bold text-gray-900 md:text-xl">
-                Communication and Learning Assistant Volunteer
+                1 Communications and Learning Assistant
               </h3>
             </div>
           </div>

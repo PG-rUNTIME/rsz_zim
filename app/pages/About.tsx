@@ -11,7 +11,7 @@ export function About() {
     {
       icon: Building2,
       title: "Collaboration with Governments and Local Institutions",
-      description: "We partner with Government of Zimbabwe entities (Civil Protection Units, line ministries), local institutions, and established development structures at national, provincial, district, ward, and village levels to integrate plans into frameworks, strengthen capacities, and contribute to policy.",
+      description: "We partner with Government of Zimbabwe entities (Civil Protection Unit, line ministries), local institutions, and established development structures at national, provincial, district, ward, and village levels to integrate plans into frameworks, strengthen capacities, and contribute to policy.",
     },
     {
       icon: Handshake,
@@ -118,7 +118,7 @@ export function About() {
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-3 md:mb-4">Our Core Principles</h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-              Five guiding principles shape all our interventions and ensure accountability to the communities we serve
+              Five guiding principles that shape all our interventions and ensure accountability to the communities we serve
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">

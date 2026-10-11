@@ -3,6 +3,7 @@ import { TeamMemberCard } from "../components/PersonCard";
 import { BIOS } from "../content/bios";
 
 const BOARD = [
+  { name: "Wonder Chinhuru", role: "Board Chairperson", imageFile: "Wonder Chinhuru.jpeg", bio: BIOS.wonder },
   { name: "Dr. Nelson Chanza", role: "Board Member · Technical Advisor", imageFile: "Dr Nelson Chanza.jpeg", bio: BIOS.nelson },
   { name: "Enety Chokera", role: "Board Member · Emergency Response Programs", imageFile: null, bio: BIOS.enety },
   { name: "Gamuchirai Murenje", role: "Board Member", imageFile: "Gamuchirai Murenje.jpeg", bio: BIOS.gamuchirai },

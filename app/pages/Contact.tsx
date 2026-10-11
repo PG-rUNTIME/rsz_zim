@@ -96,7 +96,7 @@ export function Contact() {
   };
 
   const partners = [
-    "Government of Zimbabwe - Civil Protection Units",
+    "Government of Zimbabwe - Civil Protection Unit",
     "Local Government Authorities",
     "UN Agencies and International NGOs",
     "Community-Based Organizations",
@@ -146,12 +146,12 @@ export function Contact() {
               </div>
               <h3 className="text-xl mb-3">Telephone</h3>
               <p className="text-gray-700 mb-2">
-                <strong>Executive Director:</strong><br />
-                +263 772 978 904
-              </p>
-              <p className="text-gray-700">
                 <strong>Programs Director:</strong><br />
                 +263 778 934 153
+              </p>
+              <p className="text-gray-700">
+                <strong>Executive Director:</strong><br />
+                +263 772 978 904
               </p>
             </div>
             <div className="bg-white p-8 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">

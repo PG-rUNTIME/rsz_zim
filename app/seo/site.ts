@@ -18,8 +18,8 @@ export const DEFAULT_DESCRIPTION =
 /** Official Facebook Page (no tracking query parameters). */
 export const FACEBOOK_PAGE_URL = "https://www.facebook.com/RSocietiesZim/";
 
-/** Official LinkedIn group. */
-export const LINKEDIN_URL = "https://www.linkedin.com/groups/16709007/";
+/** Official LinkedIn profile. */
+export const LINKEDIN_URL = "https://www.linkedin.com/in/rszimbabwe/";
 
-/** X (Twitter) — placeholder until a dedicated RSZ profile exists. */
-export const X_TWITTER_URL = "https://x.com/";
+/** Official X (Twitter) profile. */
+export const X_TWITTER_URL = "https://x.com/RZimbabwe35750";

@@ -11,7 +11,7 @@ const challenges = [
   "Limited opportunities for youth",
   "Social vulnerability",
 ];
-const programmeModel = ["Listen", "Co-design", "Implement", "Measure", "Learn", "Scale"];
+const programmeModel = ["Community engagement", "Co-design", "Implement", "Measure", "Learn", "Scale"];
 const approach = ["Locally Led", "Participatory", "Inclusive", "Evidence-Based", "Partnership-Driven"];
 const partners = ["Academia", "Government", "NGOs", "Private Sector", "Communities"];
 
@@ -109,6 +109,24 @@ export function Home() {
           ))}
         </ul>
       </Section>
+
+      <section className="py-8 md:py-14">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:px-6 md:gap-6 lg:px-8">
+          {[
+            { src: "/gallery/pfumvudza-08.jpg", alt: "Community members gathered at a Pfumvudza demonstration, Ward 34 Chiwere, Mutare Rural" },
+            { src: "/gallery/pfumvudza-03.jpg", alt: "Farmers learning Pfumvudza planting techniques together, Mutare Rural" },
+          ].map((p) => (
+            <img
+              key={p.src}
+              src={p.src}
+              alt={p.alt}
+              className="aspect-[3/2] w-full rounded-xl object-cover shadow-md"
+              loading="lazy"
+              decoding="async"
+            />
+          ))}
+        </div>
+      </section>
 
       <Section title="Our Programme Model">
         <ol className="flex flex-col items-stretch gap-2 md:flex-row md:flex-wrap md:items-center md:justify-center">

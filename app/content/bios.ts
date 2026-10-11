@@ -11,4 +11,8 @@ export const BIOS = {
     "Tinashe Mhlanga is an experienced community development professional with expertise in business management, finance, agribusiness models, organisational administration, and management, supporting sustainable livelihoods and community empowerment.",
   evelyn:
     "An experienced legal professional with expertise in legal advisory, community engagement, human rights, and access to justice. Passionate about promoting social justice, protecting vulnerable groups, and empowering communities through legal awareness and advocacy.",
+  godfrey:
+    "Godfrey Madyauta is a development professional with over eight years of experience in programme quality, Monitoring, Evaluation, Accountability and Learning (MEAL), food security, climate resilience, and humanitarian response. He brings strong expertise in strategic programme design, evidence-based decision-making, partnership coordination, and community-centred development. Passionate about building resilient and inclusive communities, improve programme impact, and promote sustainable livelihoods for vulnerable populations across Zimbabwe.",
+  virginia:
+    "Virginia Masocha is a Resource Mobilisation Associate at the Resilient Societies of Zimbabwe (RSZ). She supports grant proposal development, donor research, and relationship management. Virginia holds a BSc Honors in Political Science from the University of Zimbabwe and is based in Harare. She speaks Shona, Ndau and English.",
 };

@@ -6,6 +6,7 @@ import {
   LINKEDIN_URL,
   SITE_INQUIRY_EMAIL,
   SITE_NAME,
+  X_TWITTER_URL,
 } from "../seo/site";
 
 const SCRIPT_ID = "rsz-organization-jsonld";
@@ -26,7 +27,7 @@ export function OrganizationJsonLd() {
       alternateName: "RSZ",
       description: DEFAULT_DESCRIPTION,
       email: SITE_INQUIRY_EMAIL,
-      telephone: "+263-772-978-904",
+      telephone: ["+263-778-934-153", "+263-772-978-904"],
       address: {
         "@type": "PostalAddress",
         streetAddress: "Stand Number 2822, Mutare (Chikanga)",
@@ -38,7 +39,7 @@ export function OrganizationJsonLd() {
         "@type": "Country",
         name: "Zimbabwe",
       },
-      sameAs: [FACEBOOK_PAGE_URL, LINKEDIN_URL],
+      sameAs: [FACEBOOK_PAGE_URL, X_TWITTER_URL, LINKEDIN_URL],
     };
 
     if (url) {

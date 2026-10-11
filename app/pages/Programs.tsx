@@ -27,7 +27,13 @@ export function Programs() {
           <p className="text-sm font-semibold uppercase tracking-wide text-green-700 mb-2">
             Featured Project · {projectStatus()}
           </p>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4 md:mb-6">{P.title}</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4 md:mb-6">{P.title.split("ACT").map((part, i) => (
+              <span key={i}>
+                {i > 0 ? <span className="text-red-600">ACT</span> : null}
+                {part}
+              </span>
+            ))}
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-8">
             {[
               { icon: "📍", text: P.location },
